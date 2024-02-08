@@ -1,6 +1,6 @@
 Class {
-	#name : #ImdbFilm,
-	#superclass : #Object,
+	#name : 'ImdbFilm',
+	#superclass : 'Object',
 	#instVars : [
 		'name',
 		'year',
@@ -9,10 +9,11 @@ Class {
 	#classInstVars : [
 		'films'
 	],
-	#category : #CodeOfSpec20BookFilm
+	#category : 'CodeOfSpec20BookFilm',
+	#package : 'CodeOfSpec20BookFilm'
 }
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 ImdbFilm class >> ET [
 	^ self new 
 		name: 'E.T.';
@@ -21,59 +22,59 @@ ImdbFilm class >> ET [
 		yourself
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 ImdbFilm class >> addET [
 	films add: self ET
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ImdbFilm class >> addFilm: aFilm [
 	films add: aFilm
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ImdbFilm class >> films [
        ^ films ifNil: [ films := OrderedCollection new ]
 
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 ImdbFilm class >> reset [ 
 	films := OrderedCollection new
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ImdbFilm >> director [
 
 	^ director
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ImdbFilm >> director: anObject [
 
 	director := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ImdbFilm >> name [
 
 	^ name
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ImdbFilm >> name: anObject [
 
 	name := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ImdbFilm >> year [
 
 	^ year
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ImdbFilm >> year: anObject [
 
 	year := anObject

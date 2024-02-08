@@ -1,26 +1,33 @@
 Class {
-	#name : #FilmListPresenterTest,
-	#superclass : #TestCase,
+	#name : 'FilmListPresenterTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'presenter'
 	],
-	#category : #CodeOfSpec20BookFilm
+	#category : 'CodeOfSpec20BookFilm',
+	#package : 'CodeOfSpec20BookFilm'
 }
 
-{ #category : #running }
+{ #category : 'running' }
 FilmListPresenterTest >> setUp [
 	super setUp. 
 	ImdbFilm reset. 
 	ImdbFilm addET.
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 FilmListPresenterTest >> tearDown [
 	presenter ifNotNil: [ presenter delete ].
 	super tearDown. 
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
+FilmListPresenterTest >> testIt [
+
+	self assert: true
+]
+
+{ #category : 'tests' }
 FilmListPresenterTest >> testListIsSimpleSelection [
 
 	presenter := ImdbFilmListPresenter new.	
@@ -28,7 +35,7 @@ FilmListPresenterTest >> testListIsSimpleSelection [
 	self deny: presenter filmList isMultipleSelection.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 FilmListPresenterTest >> testWhenSelectingOneFilmAndClickingOnEmpty [
 
 	| name |
@@ -48,7 +55,7 @@ FilmListPresenterTest >> testWhenSelectingOneFilmAndClickingOnEmpty [
 	self assert: presenter detail name equals: name
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 FilmListPresenterTest >> testWhenSelectingOneFilmThenDetailIsUpdated [
 
 	| detail |

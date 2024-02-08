@@ -1,10 +1,11 @@
 Class {
-	#name : #ImdbApp,
-	#superclass : #SpApplication,
-	#category : #CodeOfSpec20BookFilm
+	#name : 'ImdbApp',
+	#superclass : 'SpApplication',
+	#category : 'CodeOfSpec20BookFilm',
+	#package : 'CodeOfSpec20BookFilm'
 }
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 ImdbApp >> initialize [
 
  	super initialize.

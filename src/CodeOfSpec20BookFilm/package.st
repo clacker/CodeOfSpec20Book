@@ -1,1 +1,1 @@
-Package { #name : #CodeOfSpec20BookFilm }
+Package { #name : 'CodeOfSpec20BookFilm' }

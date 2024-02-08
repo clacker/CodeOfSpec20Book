@@ -15,16 +15,17 @@ presenter openWithLayout: presenter listAboveLayout.
 ```
 "
 Class {
-	#name : #ImdbFilmListPresenter,
-	#superclass : #SpPresenter,
+	#name : 'ImdbFilmListPresenter',
+	#superclass : 'SpPresenter',
 	#instVars : [
 		'filmList',
 		'detail'
 	],
-	#category : #CodeOfSpec20BookFilm
+	#category : 'CodeOfSpec20BookFilm',
+	#package : 'CodeOfSpec20BookFilm'
 }
 
-{ #category : #examples }
+{ #category : 'examples' }
 ImdbFilmListPresenter class >> example [
 	<script>
 	
@@ -34,7 +35,7 @@ presenter := app newPresenter: ImdbFilmListPresenter.
 presenter openWithLayout: presenter listAboveLayout.
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 ImdbFilmListPresenter class >> example1 [
 	<script>
 	| app presenter |
@@ -44,7 +45,7 @@ ImdbFilmListPresenter class >> example1 [
 	presenter open
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 ImdbFilmListPresenter >> addFilm [
         | dialog windowPresenter |
         dialog := ImdbFilmPresenter newApplication: self application.
@@ -62,12 +63,12 @@ ImdbFilmListPresenter >> addFilm [
 	
 ]
 
-{ #category : #'testing support' }
+{ #category : 'testing support' }
 ImdbFilmListPresenter >> clickFilmAtIndex: anIndex [ 
 	filmList clickAtIndex: anIndex
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 ImdbFilmListPresenter >> connectPresenters [
 	"Do not get why the ports are not workingCopies 
 	
@@ -79,12 +80,12 @@ ImdbFilmListPresenter >> connectPresenters [
 			detail setModel: selectedItemMode selectedItem ] ]
 ]
 
-{ #category : #ports }
+{ #category : 'ports' }
 ImdbFilmListPresenter >> defaultInputPort [
 	^ self inputModelPort
 ]
 
-{ #category : #layout }
+{ #category : 'layout' }
 ImdbFilmListPresenter >> defaultLayout [
 
 	^ SpBoxLayout newTopToBottom
@@ -93,17 +94,17 @@ ImdbFilmListPresenter >> defaultLayout [
 		  yourself
 ]
 
-{ #category : #'testing support' }
+{ #category : 'testing support' }
 ImdbFilmListPresenter >> detail [
 	^ detail
 ]
 
-{ #category : #'testing support' }
+{ #category : 'testing support' }
 ImdbFilmListPresenter >> filmList [
 	^ filmList
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 ImdbFilmListPresenter >> initializePresenters [
 
 	filmList := self newTable
@@ -120,7 +121,7 @@ ImdbFilmListPresenter >> initializePresenters [
 	detail editable: false.
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 ImdbFilmListPresenter >> initializeWindow: aWindowPresenter [
 
 	aWindowPresenter 
@@ -135,12 +136,12 @@ ImdbFilmListPresenter >> initializeWindow: aWindowPresenter [
 						yourself)
 ]
 
-{ #category : #ports }
+{ #category : 'ports' }
 ImdbFilmListPresenter >> inputModelPort [
 	^ SpModelPort newPresenter: self
 ]
 
-{ #category : #layout }
+{ #category : 'layout' }
 ImdbFilmListPresenter >> listAboveLayout [
 
 	^ SpBoxLayout newTopToBottom
@@ -149,7 +150,7 @@ ImdbFilmListPresenter >> listAboveLayout [
 		yourself
 ]
 
-{ #category : #layout }
+{ #category : 'layout' }
 ImdbFilmListPresenter >> listOnlyLayout [ 
 
 	^ SpBoxLayout newTopToBottom
@@ -157,7 +158,7 @@ ImdbFilmListPresenter >> listOnlyLayout [
 		yourself
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 ImdbFilmListPresenter >> updatePresenter [
 	
 	filmList items: ImdbFilm films

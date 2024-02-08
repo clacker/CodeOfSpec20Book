@@ -8,18 +8,19 @@ app := ImdbApp new.
 ```
 "
 Class {
-	#name : #ImdbFilmPresenter,
-	#superclass : #SpPresenter,
+	#name : 'ImdbFilmPresenter',
+	#superclass : 'SpPresenter',
 	#instVars : [
 		'nameText',
 		'directorText',
 		'yearNumber',
 		'nameLabel'
 	],
-	#category : #CodeOfSpec20BookFilm
+	#category : 'CodeOfSpec20BookFilm',
+	#package : 'CodeOfSpec20BookFilm'
 }
 
-{ #category : #layout }
+{ #category : 'layout' }
 ImdbFilmPresenter >> defaultLayout [
 	
 	^ SpGridLayout build: [ :builder |
@@ -31,24 +32,24 @@ ImdbFilmPresenter >> defaultLayout [
 			add: 'Year'; add: yearNumber ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ImdbFilmPresenter >> director [
        ^ directorText text
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ImdbFilmPresenter >> directorText [
 
 	^ directorText
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ImdbFilmPresenter >> directorText: anObject [
 
 	directorText := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ImdbFilmPresenter >> editable: aBoolean [
 
 	nameText editable: aBoolean.
@@ -56,7 +57,7 @@ ImdbFilmPresenter >> editable: aBoolean [
 	yearNumber editable: aBoolean
 ]
 
-{ #category : #window }
+{ #category : 'window' }
 ImdbFilmPresenter >> initializeDialogWindow: aDialogPresenter [
 
 	aDialogPresenter centered.
@@ -65,7 +66,7 @@ ImdbFilmPresenter >> initializeDialogWindow: aDialogPresenter [
 		addButton: 'Save Film' do: [ :presenter | presenter beOk; close ].
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 ImdbFilmPresenter >> initializePresenters [ 
 	nameLabel := self newLabel 
 		label: 'Name'; 
@@ -78,43 +79,43 @@ ImdbFilmPresenter >> initializePresenters [
 			yourself.
 ]
 
-{ #category : #window }
+{ #category : 'window' }
 ImdbFilmPresenter >> initializeWindow: aWindowPresenter [
         aWindowPresenter
          title: 'Film';
          initialExtent: 400 @ 250
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ImdbFilmPresenter >> name [
        ^ nameText text
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ImdbFilmPresenter >> nameText [
 
 	^ nameText
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ImdbFilmPresenter >> nameText: anObject [
 
 	nameText := anObject
 ]
 
-{ #category : #model }
+{ #category : 'model' }
 ImdbFilmPresenter >> setModel: aFilm [
         nameText text: aFilm name.
         directorText text: aFilm director.
         yearNumber number: aFilm year.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ImdbFilmPresenter >> yearNumber [
        ^ yearNumber text
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ImdbFilmPresenter >> yearNumber: anObject [
 
 	yearNumber := anObject

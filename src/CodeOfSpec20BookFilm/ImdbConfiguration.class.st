@@ -1,17 +1,18 @@
 Class {
-	#name : #ImdbConfiguration,
-	#superclass : #SpMorphicConfiguration,
-	#category : #CodeOfSpec20BookFilm
+	#name : 'ImdbConfiguration',
+	#superclass : 'SpMorphicConfiguration',
+	#category : 'CodeOfSpec20BookFilm',
+	#package : 'CodeOfSpec20BookFilm'
 }
 
-{ #category : #configuring }
+{ #category : 'configuring' }
 ImdbConfiguration >> configure: anApplication [
 
 	super configure: anApplication.
 	self addStyleSheetFromString: self customStyleSheet
 ]
 
-{ #category : #sylesheets }
+{ #category : 'sylesheets' }
 ImdbConfiguration >> customStyleSheet [
 
 	^ '
