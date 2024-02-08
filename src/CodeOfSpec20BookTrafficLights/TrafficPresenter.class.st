@@ -1,5 +1,5 @@
 "
-I present the GUI of a TrafficLights. The GUI is build using Spec.
+I present the GUI of a TrafficLights. The GUI is built using Spec.
 
 To open me execute
 
@@ -121,6 +121,6 @@ TrafficPresenter >> initializePresenters [
 TrafficPresenter >> initializeWindow: aWindowPresenter [
 
 	aWindowPresenter
-		title: 'A traffic ligths model';
+		title: 'A traffic lights model';
 		initialExtent: 450 @ 710
 ]

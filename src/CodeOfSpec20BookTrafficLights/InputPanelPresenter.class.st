@@ -53,7 +53,7 @@ InputPanelPresenter >> connectPresenters [
 InputPanelPresenter >> defaultLayout [
 	
 	^ SpGridLayout new
-		  add: 'Set durations of ligths' at: 1 @ 1 span: 2 @ 1;
+		  add: 'Set durations of lights' at: 1 @ 1 span: 2 @ 1;
 		  add: 'red' at: 1 @ 2;
 		  add: redInput at: 2 @ 2;
 		  add: 'yellow' at: 1 @ 3;
@@ -95,7 +95,7 @@ InputPanelPresenter >> initializePresenters [
 InputPanelPresenter >> initializeWindow: aWindowPresenter [
 
 	aWindowPresenter
-		title: 'Set durations of ligths';
+		title: 'Set durations of lights';
 		initialExtent: 200 @ 200
 ]
 
