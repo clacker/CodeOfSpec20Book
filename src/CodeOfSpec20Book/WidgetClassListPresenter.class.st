@@ -7,41 +7,46 @@ WidgetClassListPresenter new open
 ```
 "
 Class {
-	#name : #WidgetClassListPresenter,
-	#superclass : #SpPresenter,
+	#name : 'WidgetClassListPresenter',
+	#superclass : 'SpPresenter',
 	#instVars : [
 		'list'
 	],
-	#category : #'CodeOfSpec20Book-MiniClassBrowser'
+	#category : 'CodeOfSpec20Book-Chapter07',
+	#package : 'CodeOfSpec20Book',
+	#tag : 'Chapter07'
 }
 
-{ #category : #specs }
+{ #category : 'examples' }
 WidgetClassListPresenter class >> example [
-	<script>
+
 	self new open
 ]
 
-{ #category : #initialization }
+{ #category : 'layout' }
 WidgetClassListPresenter >> defaultLayout [
+
 	^ SpBoxLayout newLeftToRight 
 		add: #list;
 		yourself
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 WidgetClassListPresenter >> initializePresenters [
+
 	list := self newList.
-	list items: (SpAbstractWidgetPresenter allSubclasses
-		 							 sorted: [:a :b | a name < b name ]).
-	self focusOrder add: list.
+	list items: (SpAbstractWidgetPresenter allSubclasses sorted: [:a :b | a name < b name ]).
+	self focusOrder add: list
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 WidgetClassListPresenter >> initializeWindow: aWindowPresenter [
+
 	aWindowPresenter title: 'Widgets'
 ]
 
-{ #category : #actions }
+{ #category : 'api' }
 WidgetClassListPresenter >> whenSelectionChangedDo: aBlock [
+
 	list whenSelectionChangedDo: aBlock
 ]

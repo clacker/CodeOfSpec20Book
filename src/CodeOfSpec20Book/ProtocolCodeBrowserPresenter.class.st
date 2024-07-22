@@ -6,57 +6,59 @@ ProtocolCodeBrowserPresenter new open
 ```
 "
 Class {
-	#name : #ProtocolCodeBrowserPresenter,
-	#superclass : #SpPresenter,
+	#name : 'ProtocolCodeBrowserPresenter',
+	#superclass : 'SpPresenter',
 	#instVars : [
 		'text',
 		'viewer'
 	],
-	#category : #'CodeOfSpec20Book-MiniClassBrowser'
+	#category : 'CodeOfSpec20Book-Chapter07',
+	#package : 'CodeOfSpec20Book',
+	#tag : 'Chapter07'
 }
 
-{ #category : #initialization }
+{ #category : 'examples' }
+ProtocolCodeBrowserPresenter class >> example [
+
+	self new open
+]
+
+{ #category : 'initialization' }
 ProtocolCodeBrowserPresenter >> connectPresenters [
 
-	viewer whenSelectionInClassChanged: [ :selection | text behavior: selection selectedItem ].
+	viewer whenSelectionInClassChanged: [ :selection |
+		text behavior: selection selectedItem ].
 	viewer whenSelectionInAPIChanged: [ :selection |
 		selection selectedItem
-			ifNotNil: [ :item | text text: item sourceCode ] ].
+			ifNotNil: [ :item | text beForMethod: item; text: item sourceCode ] ].
 	viewer whenSelectionInEventChanged: [ :selection |
 		selection selectedItem
-			ifNotNil: [ :item | text text: item sourceCode ] ]
+			ifNotNil: [ :item | text beForMethod: item; text: item sourceCode ] ]
 ]
 
-{ #category : #initialization }
+{ #category : 'layout' }
 ProtocolCodeBrowserPresenter >> defaultLayout [
-	
+
 	^ SpBoxLayout newTopToBottom
-			add: (SpBoxLayout newHorizontal add: #viewer ; yourself);
-			add: #text;
-			yourself
+		add: (SpBoxLayout newLeftToRight add: #viewer; yourself);
+		add: #text;
+		yourself
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 ProtocolCodeBrowserPresenter >> initializePresenters [
-	text := self instantiate: SpCodePresenter.
-	viewer := self instantiate: ProtocolViewerPresenter with: ProtocolViewerPresenter horizontalLayout.
-	text syntaxHighlight: true.
-	self focusOrder
-		add: viewer;
-		add: text
-]
 
-{ #category : #initialization }
-ProtocolCodeBrowserPresenter >> initializePresenters2 [
 	text := self instantiate: SpCodePresenter.
 	viewer := self instantiate: ProtocolViewerPresenter.
+	viewer layout: viewer horizontalLayout.
 	text syntaxHighlight: true.
 	self focusOrder
 		add: viewer;
 		add: text
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 ProtocolCodeBrowserPresenter >> initializeWindow: aWindowPresenter [
+
 	aWindowPresenter title: 'Spec Protocol Browser'
 ]
